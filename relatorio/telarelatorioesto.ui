@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>847</width>
+    <height>561</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Relatório de Estoque</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>10</y>
+     <width>231</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;Times New Roman&quot;;</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Relatórios de estoque &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>310</y>
+     <width>811</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QLabel" name="labelEstMinimo">
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;Times New Roman&quot;;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Produtos com estoque &lt;span style=&quot; color:#ff0000;&quot;&gt;menor &lt;/span&gt;que o estoque mínimo &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="labelEstMax">
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;Times New Roman&quot;;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Produtos com estoque &lt;span style=&quot; color:#ff0000;&quot;&gt;maior&lt;/span&gt; que o estoque máximo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>340</y>
+     <width>801</width>
+     <height>194</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QTreeWidget" name="TableEstMin">
+      <column>
+       <property name="text">
+        <string>Descrição</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Estoque </string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Estoque minímo</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Estoque máximo</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Valor</string>
+       </property>
+      </column>
+      <item>
+       <property name="text">
+        <string>teste</string>
+       </property>
+       <property name="text">
+        <string>11</string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="text">
+        <string>150</string>
+       </property>
+       <property name="text">
+        <string>120</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>AAA</string>
+       </property>
+       <property name="text">
+        <string>2</string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="text">
+        <string>150</string>
+       </property>
+       <property name="text">
+        <string>120</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>New Item</string>
+       </property>
+       <property name="text">
+        <string>12</string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="text">
+        <string>150</string>
+       </property>
+       <property name="text">
+        <string>87</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTreeWidget" name="TableEstMax">
+      <column>
+       <property name="text">
+        <string>Descrição </string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Estoque </string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Estoque minímo</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Estoque máximo</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Valor</string>
+       </property>
+      </column>
+      <item>
+       <property name="text">
+        <string>teste</string>
+       </property>
+       <property name="text">
+        <string>12</string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="text">
+        <string>100</string>
+       </property>
+       <property name="text">
+        <string>87</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Abc</string>
+       </property>
+       <property name="text">
+        <string>12</string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="text">
+        <string>100</string>
+       </property>
+       <property name="text">
+        <string>34</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>TRX 4060</string>
+       </property>
+       <property name="text">
+        <string>11</string>
+       </property>
+       <property name="text">
+        <string>2</string>
+       </property>
+       <property name="text">
+        <string>100</string>
+       </property>
+       <property name="text">
+        <string>876</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>801</width>
+     <height>219</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="labelEstNormal">
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;Times New Roman&quot;;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Produtos com estoque &lt;span style=&quot; color:#ff0000;&quot;&gt;normal&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTreeWidget" name="TableEstNormal">
+      <column>
+       <property name="text">
+        <string>Descrição </string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Estoque </string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Estoque minímo </string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Estoque máximo</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>valor</string>
+       </property>
+      </column>
+      <item>
+       <property name="text">
+        <string>RTX 4060</string>
+       </property>
+       <property name="text">
+        <string>10</string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="text">
+        <string>100</string>
+       </property>
+       <property name="text">
+        <string>758</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>TESTE</string>
+       </property>
+       <property name="text">
+        <string>10</string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="text">
+        <string>100</string>
+       </property>
+       <property name="text">
+        <string>100</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>PRODUTO </string>
+       </property>
+       <property name="text">
+        <string>10</string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="text">
+        <string>100</string>
+       </property>
+       <property name="text">
+        <string>120</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>40</y>
+     <width>381</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <item>
+     <widget class="QLineEdit" name="lineEdit"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
