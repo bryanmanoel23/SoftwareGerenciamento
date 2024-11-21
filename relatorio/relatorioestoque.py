@@ -119,7 +119,11 @@ class Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
 
         try:
-            
+            #limpa as widge antes de adicionar dados nelas
+            self.TableEstNormal.clear()
+            self.TableEstMin.clear()
+            self.TableEstMax.clear()
+
             cursor = self.connection.cursor()
             #estoque normal
             #Insere dados na tabela
@@ -167,8 +171,8 @@ class Ui_Form(object):
                 
                 #estoque minimo
                 item_0 = QtWidgets.QTreeWidgetItem(self.TableEstMin)
-                item_0 = QtWidgets.QTreeWidgetItem(self.TableEstMin)
-                item_0 = QtWidgets.QTreeWidgetItem(self.TableEstMin)
+                # item_0 = QtWidgets.QTreeWidgetItem(self.TableEstMin)
+                # item_0 = QtWidgets.QTreeWidgetItem(self.TableEstMin)
 
                 self.TableEstMin.topLevelItem(count2).setText(0, _translate("Form", chave["descricao"]))
                 self.TableEstMin.topLevelItem(count2).setText(1, _translate("Form", str(chave["estoque"])))
