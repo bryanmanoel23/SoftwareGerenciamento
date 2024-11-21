@@ -68,11 +68,16 @@ class Ui_Form(object):
         self.btEntrarEntradas.setObjectName("btEntrarEntradas")
         self.verticalLayout_6.addWidget(self.btEntrarEntradas)
 
-        #cahama função que commit alterção dos dados no DB
-        self.btEntrarEntradas.clicked.connect(self.salvarentradas)
+        #cahama função que limpa a widgwet
+        self.btEntrarEntradas.clicked.connect(self.limpaWidgetE)
+
         self.btncancelarEntradas = QtWidgets.QPushButton(parent=self.layoutWidget_2)
         self.btncancelarEntradas.setObjectName("btncancelarEntradas")
         self.verticalLayout_6.addWidget(self.btncancelarEntradas)
+        
+        #chama a função que limpa a widget ao clicar em cancelar
+        self.btncancelarEntradas.clicked.connect(self.limpaWidgetE)
+
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.verticalLayout_6.addItem(spacerItem)
         self.horizontalLayout_6.addLayout(self.verticalLayout_6)
@@ -127,9 +132,15 @@ class Ui_Form(object):
         self.btnvenderVendas = QtWidgets.QPushButton(parent=self.layoutWidget_4)
         self.btnvenderVendas.setObjectName("btnvenderVendas")
         self.verticalLayout_2.addWidget(self.btnvenderVendas)
+        #chama função limpa formulário
+        self.btnvenderVendas.clicked.connect(self.limpaWidgetS)
+
         self.btnCancelarVendas = QtWidgets.QPushButton(parent=self.layoutWidget_4)
         self.btnCancelarVendas.setObjectName("btnCancelarVendas")
         self.verticalLayout_2.addWidget(self.btnCancelarVendas)
+        #chama a função limpar widget ao clique do botao cancel
+        self.btnCancelarVendas.clicked.connect(self.limpaWidgetS)
+
         spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.verticalLayout_2.addItem(spacerItem1)
         self.horizontalLayout_5.addLayout(self.verticalLayout_2)
@@ -278,16 +289,19 @@ class Ui_Form(object):
 
                 self.c = self.c + 1 
  
-
             self.lineDescricaoVendas.setText('')
             self.lineQuantidadeVendas.setText('')
         finally:
             self.connection.close()   
         
 #btEntrarEntradas
-    def salvarentradas(self):
-        print('clicou btn entrar')
+    def limpaWidgetS(self):
+        self.tabelavendas.clear()
+        self.c = 0
         
+    def limpaWidgetE(self):
+        self.tabelaEntradas.clear()
+        self.count = 0
 
 if __name__ == "__main__":
     import sys
