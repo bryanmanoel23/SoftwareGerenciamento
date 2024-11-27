@@ -289,6 +289,9 @@ class Ui_MainWindow(object):
         write_timeout=timeout,
         )
        
+        if self.txt_estoque == '':
+            self.txt_estoque = 0
+
         self.descricao = self.txt_descricao.text()
 
         self.categoria = self.ComboCategoria.currentText()
@@ -297,24 +300,55 @@ class Ui_MainWindow(object):
 
         self.localizacao = self.comLocalizacao.currentText()
 
-        self.estoque = float(self.txt_estoque.text())
+        self.estoque = self.txt_estoque.text()
 
-        self.estoque_min = float(self.txt_estoquMin.text())
+        self.estoque_min = self.txt_estoquMin.text()
 
-        self.estoque_max = float(self.txty_estoqueMax.text())
+        self.estoque_max = self.txty_estoqueMax.text()
 
         print(self.descricao, self.categoria, self.preco, self.localizacao, self.estoque, self.estoque_min, self.estoque_max )
         
         try:
-            cursor = self.connection.cursor()
-            #Cria uma tabela de teste
-            cursor.execute("INSERT INTO produtos"
-                    "(descricao, categoria, preco,localizacao, estoque, estoque_min,estoque_max)"
-                    "VALUES('%s', '%s', %s, '%s', %s, %s, %s)" %(self.descricao, self.categoria, self.preco, self.localizacao, self.estoque, self.estoque_min, self.estoque_max )) #
-            #Insere dados na tabela
-            cursor.execute("SELECT * FROM produtos") # Lê os dados
-            print(cursor.fetchall()) # Mostra os dados lidos
-            self.connection.commit()
+            if self.descricao != '' and self.categoria != '' and self.preco != '' and self.localizacao != '' and self.estoque != '' and self.estoque_min != '' and self.estoque_max != '':
+                
+                
+                try:
+
+                    float(self.estoque)
+                    float(self.estoque_min)
+                    float(self.estoque_max)
+                    float(self.preco)
+
+                    if self.estoque.isnumeric() and self.estoque_min.isnumeric() and self.estoque_max.isnumeric() and self.preco.isnumeric():
+                        cursor = self.connection.cursor()
+                        #Cria uma tabela de teste
+                        cursor.execute("INSERT INTO produtos"
+                                "(descricao, categoria, preco,localizacao, estoque, estoque_min,estoque_max)"
+                                "VALUES('%s', '%s', %s, '%s', %s, %s, %s)" %(self.descricao, self.categoria, float(self.preco), self.localizacao, float(self.estoque), float(self.estoque_min), float(self.estoque_max) )) #
+                        #Insere dados na tabela
+                        cursor.execute("SELECT * FROM produtos") # Lê os dados
+                        print(cursor.fetchall()) # Mostra os dados lidos
+                        self.connection.commit()
+                        from avisos.avisoCadastrado import Ui_Sobre
+                        self.window = QtWidgets.QMainWindow()
+                        self.avisoCad = Ui_Sobre()
+                        self.avisoCad.setupUi(self.window)
+                        self.window.show()
+
+                except ValueError:
+                    from avisos.avisoStringToInt import Ui_Sobre
+                    self.window = QtWidgets.QMainWindow()
+                    self.avisoInt = Ui_Sobre()
+                    self.avisoInt.setupUi(self.window)
+                    self.window.show()
+                
+            else:
+                from avisos.aviso import Ui_Sobre
+                self.window = QtWidgets.QMainWindow()
+                self.aviso = Ui_Sobre()
+                self.aviso.setupUi(self.window)
+                self.window.show()
+                
 
         finally:
             self.connection.close()
@@ -389,7 +423,6 @@ class Ui_MainWindow(object):
                 count = count + 1 
                 
         finally:
-           
             self.connection.close()
 
     def show_sobre(self):
@@ -407,12 +440,11 @@ class Ui_MainWindow(object):
         self.window.show()
 
     def show_entradasesaidas(self):
-        from entradaeSaidasProduto.ES import Ui_Form
+        from entradaeSaidasProduto.ESv2 import Ui_Form
         self.window2 = QtWidgets.QMdiSubWindow()
         self.es = Ui_Form()
         self.es.setupUi(self.window2)
-        self.window2.show()
-       
+        self.window2.show()  
 
 if __name__ == "__main__":
     import sys
